@@ -1,19 +1,19 @@
 # Node SAML
 
 [![Build Status](https://github.com/node-saml/node-saml/workflows/Build%20Status/badge.svg)](https://github.com/node-saml/node-saml/actions?query=workflow%3ABuild%Status)
-[![npm version](https://badge.fury.io/js/@node-saml%2Fnode-saml.svg)](https://badge.fury.io/js/@node-saml%2Fnode-saml)
+[![npm version](https://badge.fury.io/js/@articulate%2Fnode-saml.svg)](https://badge.fury.io/js/@articulate%2Fnode-saml)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![codecov](https://codecov.io/gh/node-saml/node-saml/branch/master/graph/badge.svg?token=PQWCMBWBFB)](https://codecov.io/gh/node-saml/node-saml)
 [![DeepScan grade](https://deepscan.io/api/teams/17569/projects/20921/branches/586237/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=17569&pid=20921&bid=586237)
 
-[![NPM](https://nodei.co/npm/@node-saml/node-saml.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/@node-saml/node-saml)
+[![NPM](https://nodei.co/npm/@articulate/node-saml.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/@articulate/node-saml)
 
 This is a [SAML 2.0](http://en.wikipedia.org/wiki/SAML_2.0) authentication provider for Node.js.
 
 ## Installation
 
 ```shell
-npm install @node-saml/node-saml
+npm install @articulate/node-saml
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ The examples utilize the [Feide OpenIdp identity provider](https://openidp.feide
 The SAML identity provider will redirect you to the URL provided by the `path` configuration.
 
 ```javascript
-const { SAML } = require("@node-saml/node-saml");
+const { SAML } = require("@articulate/node-saml");
 
 const options = {};
 const saml = new SAML(options);
@@ -151,7 +151,7 @@ samlLogoutRequestExtensions: {
 metadataContactPerson:  [{
   "@contactType": "support",
   "GivenName": "test",
-  "EmailAddress": "test@node-saml",
+  "EmailAddress": "test@articulate",
 }],
 // ContactPerson is an array because there can be multiple ContactPerson fields
 ```
