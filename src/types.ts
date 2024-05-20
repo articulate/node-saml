@@ -4,6 +4,7 @@ export type PemLabel = "CERTIFICATE" | "PUBLIC KEY" | "PRIVATE KEY";
 
 export interface SamlSigningOptions {
   privateKey: string | Buffer;
+  publicCert?: string;
   signatureAlgorithm?: SignatureAlgorithm;
   xmlSignatureTransforms?: string[];
   digestAlgorithm?: string;
@@ -74,16 +75,17 @@ export type SamlStatusXmlJs = {
   ];
 };
 
-export type CertCallback = (
-  callback: (err: Error | null, cert?: string | string[]) => void,
+export type IdpCertCallback = (
+  callback: (err: Error | null, publicCert?: string | string[]) => void,
 ) => void;
 
 /**
  * These are SAML options that must be provided to construct a new SAML Strategy
  */
 export interface MandatorySamlOptions {
-  cert: string | string[] | CertCallback;
+  idpCert: string | string[] | IdpCertCallback;
   issuer: string;
+  callbackUrl: string;
 }
 
 export interface SamlIDPListConfig {
@@ -141,7 +143,6 @@ export enum ValidateInResponseTo {
  */
 export interface SamlOptions extends Partial<SamlSigningOptions>, MandatorySamlOptions {
   // Core
-  callbackUrl: string;
   entryPoint?: string;
   decryptionPvk?: string | Buffer;
 
@@ -211,12 +212,12 @@ export interface SamlOptions extends Partial<SamlSigningOptions>, MandatorySamlO
 
 export interface GenerateServiceProviderMetadataParams {
   decryptionCert?: string | null;
-  signingCerts?: string | string[] | null;
+  publicCerts?: string | string[] | null;
   issuer: SamlOptions["issuer"];
   callbackUrl: SamlOptions["callbackUrl"];
   logoutCallbackUrl?: SamlOptions["logoutCallbackUrl"];
   identifierFormat?: SamlOptions["identifierFormat"];
-  wantAssertionsSigned: SamlOptions["wantAssertionsSigned"];
+  wantAssertionsSigned?: SamlOptions["wantAssertionsSigned"];
   decryptionPvk?: SamlOptions["decryptionPvk"];
   privateKey?: SamlOptions["privateKey"];
   signatureAlgorithm?: SamlOptions["signatureAlgorithm"];
@@ -225,7 +226,7 @@ export interface GenerateServiceProviderMetadataParams {
   signMetadata?: SamlOptions["signMetadata"];
   metadataContactPerson?: SamlOptions["metadataContactPerson"];
   metadataOrganization?: SamlOptions["metadataOrganization"];
-  generateUniqueId: SamlOptions["generateUniqueId"];
+  generateUniqueId?: SamlOptions["generateUniqueId"];
 }
 
 export type SamlConfig = Partial<SamlOptions> & MandatorySamlOptions;

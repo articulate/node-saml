@@ -6,7 +6,7 @@ import * as xml from "../src/xml";
 import * as assert from "assert";
 import { expect } from "chai";
 
-const cert = fs.readFileSync(__dirname + "/static/cert.pem", "ascii");
+const idpCert = fs.readFileSync(__dirname + "/static/cert.pem", "ascii");
 
 describe("Signatures", function () {
   const INVALID_SIGNATURE = "Invalid signature";
@@ -32,14 +32,14 @@ describe("Signatures", function () {
 
   const testOneResponseBody = async (
     samlResponseBody: Record<string, string>,
-    shouldErrorWith: string | false | undefined,
+    shouldErrorWith: string | false,
     amountOfSignatureChecks = 1,
     options: Partial<SamlConfig> = {},
   ) => {
     //== Instantiate new instance before every test
     const samlObj = new SAML({
       callbackUrl: "http://localhost/saml/consume",
-      cert,
+      idpCert,
       issuer: options.issuer ?? "onesaml_login",
       audience: false,
       ...options,
@@ -100,7 +100,7 @@ describe("Signatures", function () {
     it(
       "R1A - both signed, verify using public key => valid",
       testOneResponse("/valid/response.root-signed.assertion-signed.xml", false, 2, {
-        cert: publicKey,
+        idpCert: publicKey,
       }),
     );
     it(
@@ -226,6 +226,17 @@ describe("Signatures", function () {
         2,
         {
           wantAuthnResponseSigned: false,
+        },
+      ),
+    );
+    it(
+      "R1A - root re-signed by attackers own private key and attacker's certificate placed to keyinfo",
+      testOneResponse(
+        "/invalid/response.root-resigned-by-attacker-assertion-unsigned-attackers-cert-at-keyinfo.xml",
+        INVALID_DOCUMENT_SIGNATURE,
+        1,
+        {
+          wantAssertionsSigned: false,
         },
       ),
     );
