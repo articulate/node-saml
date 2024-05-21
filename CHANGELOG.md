@@ -23,15 +23,12 @@
 
 ### 🔗 Dependencies
 
-# <<<<<<< HEAD
-
 - [**javascript**] Bump release-it from 16.3.0 to 17.0.5 [#348](https://github.com/node-saml/node-saml/pull/348)
 - [**javascript**] Bump eslint-plugin-prettier from 4.2.1 to 5.1.3 [#346](https://github.com/node-saml/node-saml/pull/346)
 - [**javascript**] Bump eslint-config-prettier from 8.10.0 to 9.1.0 [#345](https://github.com/node-saml/node-saml/pull/345)
 - [**javascript**] Bump eslint-plugin-deprecation from 1.5.0 to 2.0.0 [#347](https://github.com/node-saml/node-saml/pull/347)
 - [**javascript**] Bump sinon and @types/sinon [#349](https://github.com/node-saml/node-saml/pull/349)
 - [**github_actions**] Bump actions/checkout from 3 to 4 [#330](https://github.com/node-saml/node-saml/pull/330)
-  > > > > > > > upstream/master
 - [**javascript**] Bump prettier from 2.8.8 to 3.0.0 [#300](https://github.com/node-saml/node-saml/pull/300)
 - [**javascript**] Bump prettier-plugin-packagejson from 2.4.3 to 2.4.5 [#307](https://github.com/node-saml/node-saml/pull/307)
 - [**javascript**] Bump eslint from 8.42.0 to 8.45.0 [#306](https://github.com/node-saml/node-saml/pull/306)
@@ -56,13 +53,9 @@
 - [**javascript**] Bump vm2 from 3.9.16 to 3.9.19 [#277](https://github.com/node-saml/node-saml/pull/277)
 - Update minor dependencies [#269](https://github.com/node-saml/node-saml/pull/269)
 
-# <<<<<<< HEAD
-
 ### 🐛 Bug Fixes
 
 - Fix metadata order [#334](https://github.com/node-saml/node-saml/pull/334)
-
-> > > > > > > upstream/master
 
 ### 📚 Documentation
 
@@ -70,10 +63,7 @@
 
 ### ⚙️ Technical Tasks
 
-# <<<<<<< HEAD
-
 - Add test coverage for initialize() of saml.ts [#327](https://github.com/node-saml/node-saml/pull/327)
-  > > > > > > > upstream/master
 - Add tests for XML parsing with comments [#285](https://github.com/node-saml/node-saml/pull/285)
 - Separate linting out from testing [#288](https://github.com/node-saml/node-saml/pull/288)
 - Add test coverage [#287](https://github.com/node-saml/node-saml/pull/287)
@@ -83,10 +73,7 @@
 
 ### 🙈 Other
 
-# <<<<<<< HEAD
-
 - Enforce valid setting for validateInResponseTo [#314](https://github.com/node-saml/node-saml/pull/314)
-  > > > > > > > upstream/master
 - feat: add public getAuthorizeMessage method [#235](https://github.com/node-saml/node-saml/pull/235)
 
 ---
